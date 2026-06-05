@@ -1,0 +1,10 @@
+{
+  "type": "product",
+  "fields": {
+    "sku": "SVC-SETUP",
+    "name": "Setup Service",
+    "unit": "each",
+    "track_inventory": false,
+    "tags": ["service"]
+  }
+}

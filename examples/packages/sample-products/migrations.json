@@ -1,0 +1,9 @@
+[
+  {
+    "id": "sample-products-1-1-barcode",
+    "kind": "schema",
+    "fromVersion": "1.0.0",
+    "toVersion": "1.1.0",
+    "description": "Add optional barcode field for external product identifiers."
+  }
+]

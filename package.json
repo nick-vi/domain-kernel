@@ -1,0 +1,58 @@
+{
+  "name": "domain-kernel",
+  "version": "0.1.0",
+  "private": true,
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/types/index.d.ts",
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md",
+    "docs/adr",
+    "docs/examples"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./cli": {
+      "types": "./dist/types/cli/index.d.ts",
+      "import": "./dist/cli/index.js"
+    }
+  },
+  "bin": {
+    "domain": "./dist/cli/index.js"
+  },
+  "engines": {
+    "node": ">=24.16.0"
+  },
+  "packageManager": "npm@11.12.1",
+  "scripts": {
+    "build": "npm run clean && npm run build:js && npm run build:types",
+    "build:js": "esbuild ./src/index.ts ./src/cli/index.ts --bundle --platform=node --format=esm --target=node24 --outdir=dist --outbase=src --sourcemap --packages=external",
+    "build:types": "tsc -p tsconfig.build.json && node scripts/rewrite-dts-paths.ts dist/types",
+    "check": "npm run typecheck && npm run build && npm run test:runtime && npm run test:consumer && npm audit",
+    "clean": "rm -rf dist",
+    "domain": "node dist/cli/index.js",
+    "test": "npm run build && npm run test:runtime",
+    "test:runtime": "vitest run --exclude 'test/consumer/**'",
+    "test:consumer": "vitest run test/consumer",
+    "test:unit": "vitest run test/unit",
+    "test:integration": "npm run build && vitest run test/integration",
+    "test:acceptance": "vitest run test/acceptance",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "commander": "^15.0.0",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "esbuild": "^0.28.0",
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.8"
+  }
+}

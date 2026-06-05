@@ -1,0 +1,10 @@
+{
+  "type": "order",
+  "fields": {
+    "customer": { "type": "string", "required": true, "minLength": 1 },
+    "lines": { "type": "array", "required": true, "minItems": 1 },
+    "priority": { "type": "enum", "values": ["low", "normal", "high"], "required": false },
+    "requiresReview": { "type": "boolean", "required": false },
+    "requested_delivery_date": { "type": "string", "required": false }
+  }
+}

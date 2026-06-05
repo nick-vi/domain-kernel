@@ -1,0 +1,17 @@
+{
+  "type": "product",
+  "states": ["draft", "active", "discontinued", "archived"],
+  "transitions": [
+    {
+      "action": "activate",
+      "from": "draft",
+      "to": "active",
+      "requires": ["sku", "name", "unit"]
+    },
+    { "action": "discontinue", "from": "active", "to": "discontinued" },
+    { "action": "reactivate", "from": "discontinued", "to": "active" },
+    { "action": "archive", "from": "draft", "to": "archived" },
+    { "action": "archive", "from": "discontinued", "to": "archived" }
+  ],
+  "closedStates": ["archived"]
+}

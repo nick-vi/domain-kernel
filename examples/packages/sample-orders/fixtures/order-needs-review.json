@@ -1,0 +1,9 @@
+{
+  "type": "order",
+  "fields": {
+    "customer": "globex",
+    "priority": "high",
+    "requiresReview": true,
+    "lines": []
+  }
+}

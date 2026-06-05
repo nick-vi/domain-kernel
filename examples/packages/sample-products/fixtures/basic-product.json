@@ -1,0 +1,14 @@
+{
+  "type": "product",
+  "fields": {
+    "sku": "SKU-001",
+    "name": "Frozen Peas",
+    "unit": "case",
+    "category": "frozen",
+    "track_inventory": true,
+    "attributes": {
+      "temperature": "frozen"
+    },
+    "tags": ["food", "frozen"]
+  }
+}

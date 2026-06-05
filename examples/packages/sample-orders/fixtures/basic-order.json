@@ -1,0 +1,13 @@
+{
+  "type": "order",
+  "fields": {
+    "customer": "acme",
+    "priority": "high",
+    "lines": [
+      {
+        "sku": "frozen-peas",
+        "quantity": 12
+      }
+    ]
+  }
+}

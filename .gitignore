@@ -1,0 +1,6 @@
+node_modules
+dist
+.data
+.tmp
+coverage
+.DS_Store

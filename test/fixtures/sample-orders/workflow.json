@@ -1,0 +1,11 @@
+{
+  "type": "order",
+  "states": ["draft", "received", "validated", "released", "closed"],
+  "transitions": [
+    { "action": "submit", "from": "draft", "to": "received", "requires": ["customer", "lines"] },
+    { "action": "validate", "from": "received", "to": "validated" },
+    { "action": "release", "from": "validated", "to": "released" },
+    { "action": "close", "from": "released", "to": "closed" }
+  ],
+  "closedStates": ["closed"]
+}

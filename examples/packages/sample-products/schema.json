@@ -1,0 +1,13 @@
+{
+  "type": "product",
+  "fields": {
+    "sku": { "type": "string", "required": true, "minLength": 1 },
+    "name": { "type": "string", "required": true, "minLength": 1 },
+    "unit": { "type": "enum", "values": ["each", "kg", "liter", "case"], "required": true },
+    "category": { "type": "string", "required": false },
+    "track_inventory": { "type": "boolean", "required": false },
+    "attributes": { "type": "object", "required": false },
+    "tags": { "type": "array", "required": false },
+    "barcode": { "type": "string", "required": false }
+  }
+}
